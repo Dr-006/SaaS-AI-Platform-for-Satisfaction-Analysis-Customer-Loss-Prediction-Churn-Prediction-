@@ -1,0 +1,47 @@
+les etapes :
+
+--Étape 1 : Dataset
+
+
+--Étape 2 : Partie 1 – Analyse Satisfaction (NLP):
+
+     (Input : Avis client texte
+      Output :
+      Score sentiment :
+           positif
+           neutre)
+
+
+        Dataset
+        ↓
+        Nettoyage texte
+        - tout en minuscules
+        - enlever URLs
+        - enlever chiffres et ponctuation
+        - enlever espaces multiples
+        ↓
+        TF-IDF
+        - Transformer texte en vecteurs numériques
+        - max_features = 5000 (modifiable)
+        ↓
+        Séparation Train/Test
+        - ex : 80% train / 20% test
+        ↓
+        Modèle entraîné
+        - Logistic Regression (ou autre modèle scikit-learn)
+        - Multi-classes supporté (si tu ajoutes “Neutral”)
+        ↓
+        Évaluation
+        - Accuracy, precision, recall, f1-score
+        - Option : Cross-validation pour fiabilité
+        ↓
+        Sauvegarde du modèle et du vectorizer
+        - joblib.dump(model, "sentiment_model.pkl")
+        - joblib.dump(vectorizer, "vectorizer.pkl")
+        ↓
+        Test en direct
+        - Charger le modèle et vectorizer
+        - Transformer texte → prédiction du sentiment
+
+
+--Étape 3 : Partie 2 – Churn Prediction (ML)
